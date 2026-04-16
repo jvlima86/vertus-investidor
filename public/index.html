@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertus Solar — Usinas Solares + Eletropostos | Ceara</title>
+<meta name="description" content="Invista em usinas solares + eletropostos com a Vertus Solar. Retorno de ate 2,87% ao mes. Gestao completa. Ceara, Brasil.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #FF7E27;
+  --orange-soft: #FF9F54;
+  --orange-dark: #CC6520;
+  --black: #1E1C1C;
+  --charcoal: #2A2828;
+  --gray: #E0E0E0;
+  --white: #F1F1F1;
+  --muted: #9A9A9A;
+  --section-pad: clamp(80px, 12vh, 140px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background: var(--black);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* ═══ UTILITIES ═══ */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grain > * { position: relative; z-index: 2; }
+
+/* ═══ SCROLL ANIMATIONS ═══ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="left"] { transform: translateX(-40px); }
+[data-reveal="left"].visible { transform: translateX(0); }
+
+[data-reveal="right"] { transform: translateX(40px); }
+[data-reveal="right"].visible { transform: translateX(0); }
+
+[data-reveal="scale"] { transform: scale(0.9); }
+[data-reveal="scale"].visible { transform: scale(1); }
+
+.stagger > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger > *:nth-child(3) { transition-delay: 0.19s; }
+.stagger > *:nth-child(4) { transition-delay: 0.26s; }
+.stagger > *:nth-child(5) { transition-delay: 0.33s; }
+.stagger > *:nth-child(6) { transition-delay: 0.4s; }
+
+/* ═══ NAVBAR ═══ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 28px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30,28,28,0.7);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid rgba(255,126,39,0.08);
+  transition: all 0.3s;
+}
+
+.nav.scrolled {
+  background: rgba(30,28,28,0.95);
+  border-bottom-color: rgba(255,126,39,0.15);
+}
+
+.nav-logo img { height: 30px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--orange); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--black) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 800 !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255,126,39,0.4);
+}
+
+.nav-mobile {
+  display: none;
+  width: 32px; height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-mobile span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 110%, rgba(170,70,0,0.72) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(170,70,0,0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 55% at 50% 110%, rgba(170,70,0,0.72) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(170,70,0,0.14) 0%, transparent 50%),
+    linear-gradient(rgba(20,18,18,0.65), rgba(20,18,18,0.65)),
+    url('imagens/download.jpeg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  padding: var(--section-pad) 0;
+}
+
+.hero-text { max-width: 560px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,126,39,0.1);
+  border: 1px solid rgba(255,126,39,0.4);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.8rem;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--orange);
+  text-shadow: 0 0 80px rgba(255,126,39,0.25);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 460px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--black);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,126,39,0.35);
+}
+
+.btn-secondary {
+  background: rgba(255,126,39,0.08);
+  border: 1px solid rgba(255,126,39,0.35);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,126,39,0.15);
+  border-color: var(--orange);
+}
+
+/* Hero KPIs */
+.hero-kpis {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-kpi {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all 0.3s;
+}
+
+.hero-kpi:hover {
+  border-color: var(--orange);
+  transform: translateX(-4px);
+  box-shadow: 4px 0 20px rgba(255,126,39,0.1);
+}
+
+.hero-kpi-icon {
+  width: 48px; height: 48px;
+  border-radius: 8px;
+  background: rgba(255,126,39,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.hero-kpi-val {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--orange);
+  letter-spacing: -0.02em;
+}
+
+.hero-kpi-lbl {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ═══ SECTION SHARED ═══ */
+section {
+  padding: var(--section-pad) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(255,126,39,0.1);
+  color: var(--orange);
+  border: 1px solid rgba(255,126,39,0.4);
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* ═══ PILLARS SECTION ═══ */
+.pillars-section {
+  background:
+    radial-gradient(ellipse 50% 60% at 85% 20%, rgba(170,70,0,0.08) 0%, transparent 50%),
+    var(--black);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pillar-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.25);
+  border-radius: 8px;
+  padding: 2.8rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.pillar-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(255,126,39,0.08);
+}
+
+.pillar-card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -1rem; right: 0.5rem;
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(255,126,39,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.pillar-icon {
+  width: 48px; height: 48px;
+  border-radius: 8px;
+  background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 20px rgba(255,126,39,0.3);
+}
+
+.pillar-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.pillar-card p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.pillar-tag {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--orange);
+  padding: 5px 14px;
+  background: rgba(255,126,39,0.1);
+  border: 1px solid rgba(255,126,39,0.3);
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ═══ DIFERENCIAIS ═══ */
+.diff-section { background: var(--black); }
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.diff-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 8px;
+  padding: 2rem 1.6rem;
+  transition: all 0.3s;
+}
+
+.diff-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+}
+
+.diff-card-icon {
+  width: 40px; height: 40px;
+  border-radius: 6px;
+  background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 14px rgba(255,126,39,0.25);
+}
+
+.diff-card h4 {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.diff-card p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+/* ═══ HOW IT WORKS — ANIMATED FLOW ═══ */
+.flow-section {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 80%, rgba(170,70,0,0.08) 0%, transparent 50%),
+    var(--black);
+}
+
+.flow-visual {
+  margin: 3rem 0 2rem;
+  position: relative;
+}
+
+.flow-path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* Animated connection line */
+.flow-path::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 60px; right: 60px;
+  height: 2px;
+  background: rgba(255,126,39,0.15);
+  z-index: 0;
+}
+
+.flow-line-animated {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+  box-shadow: 0 0 12px rgba(255,126,39,0.5);
+  z-index: 1;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-visual.visible .flow-line-animated {
+  width: calc(100% - 120px);
+}
+
+/* Glowing particle */
+.flow-particle {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  width: 10px; height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 16px var(--orange), 0 0 40px rgba(255,126,39,0.4);
+  opacity: 0;
+  z-index: 3;
+}
+
+.flow-visual.visible .flow-particle {
+  opacity: 1;
+  animation: particle-move 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes particle-move {
+  0% { left: 60px; }
+  100% { left: calc(100% - 70px); }
+}
+
+.flow-node {
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-visual.visible .flow-node { opacity: 1; transform: translateY(0); }
+.flow-visual.visible .flow-node:nth-child(1) { transition-delay: 0.2s; }
+.flow-visual.visible .flow-node:nth-child(2) { transition-delay: 0.5s; }
+.flow-visual.visible .flow-node:nth-child(3) { transition-delay: 0.8s; }
+.flow-visual.visible .flow-node:nth-child(4) { transition-delay: 1.1s; }
+.flow-visual.visible .flow-node:nth-child(5) { transition-delay: 1.4s; }
+
+.flow-node-circle {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--charcoal);
+  border: 2px solid rgba(255,126,39,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 0.8rem;
+  transition: all 0.3s;
+}
+
+.flow-node:hover .flow-node-circle {
+  border-color: var(--orange);
+  box-shadow: 0 0 20px rgba(255,126,39,0.2);
+  transform: scale(1.08);
+}
+
+.flow-node-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.flow-node-desc {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.flow-callout {
+  margin-top: 3rem;
+  padding: 2rem 2.5rem;
+  background: var(--charcoal);
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255,126,39,0.06);
+}
+
+.flow-callout h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.flow-callout p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ═══ FLOW TOGGLE ═══ */
+.flow-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 2.5rem;
+  width: fit-content;
+}
+
+.flow-toggle-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: transparent;
+  color: var(--muted);
+}
+
+.flow-toggle-btn.active {
+  background: var(--orange);
+  color: var(--black);
+}
+
+.flow-toggle-btn:hover:not(.active) {
+  color: #fff;
+}
+
+/* ═══ MULTIPLIER SECTION ═══ */
+.mult-section {
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 100%, rgba(170,70,0,0.5) 0%, transparent 55%),
+    var(--black);
+}
+
+.mult-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.mult-card {
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  background: var(--charcoal);
+  transition: all 0.3s;
+}
+
+.mult-card.before { border: 1px solid rgba(255,255,255,0.06); }
+.mult-card.after {
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 50px rgba(255,126,39,0.1);
+}
+
+.mult-card:hover { transform: translateY(-4px); }
+
+.mult-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.mult-price {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.mult-card.before .mult-price { color: rgba(255,255,255,0.3); }
+.mult-card.after .mult-price { color: var(--orange); text-shadow: 0 0 40px rgba(255,126,39,0.3); }
+
+.mult-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.mult-arrow {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--orange);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mult-grid.visible .mult-arrow {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.4s;
+}
+
+.mult-insight {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.25);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+}
+
+.mult-insight strong { color: var(--orange); font-weight: 900; }
+
+/* ═══ PRICING SECTION ═══ */
+.pricing-section {
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(170,70,0,0.06) 0%, transparent 50%),
+    var(--black);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.price-card {
+  border-radius: 8px;
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--gray);
+  color: var(--black);
+  transition: all 0.3s;
+}
+
+.price-card:hover { transform: translateY(-6px); }
+
+.price-card.featured {
+  background: var(--orange);
+  box-shadow: 0 12px 50px rgba(255,126,39,0.3);
+  transform: scale(1.03);
+}
+
+.price-card.featured:hover { transform: scale(1.05) translateY(-4px); }
+
+.price-card .pc-ribbon {
+  position: absolute;
+  top: 14px; right: -28px;
+  background: var(--black);
+  color: var(--orange);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 32px;
+  transform: rotate(45deg);
+  text-transform: uppercase;
+}
+
+.pc-kwp { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; }
+.pc-sub { font-size: 0.75rem; font-weight: 500; opacity: 0.65; margin: 0.2rem 0 1.4rem; }
+.pc-amount { font-size: 2rem; font-weight: 900; letter-spacing: -0.02em; }
+.pc-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.55; font-weight: 700; margin-top: 0.2rem; }
+
+.pc-divider { width: 36px; height: 2px; background: rgba(0,0,0,0.1); margin: 1.4rem auto; border-radius: 2px; }
+.price-card.featured .pc-divider { background: rgba(0,0,0,0.2); }
+
+.pc-list { list-style: none; text-align: left; margin-top: 0.5rem; }
+.pc-list li {
+  display: flex; justify-content: space-between;
+  font-size: 0.8rem; padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.pc-list li:last-child { border: none; }
+.pc-list .pcl { opacity: 0.6; }
+.pc-list .pcv { font-weight: 800; }
+
+/* ═══ MARKET ═══ */
+.market-section {
+  background: var(--black);
+}
+
+.market-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 2.5rem 0;
+}
+
+.market-card {
+  text-align: center;
+  padding: 2.2rem 1.5rem;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.market-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-3px);
+}
+
+.mc-val {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--orange);
+  letter-spacing: -0.02em;
+}
+
+.mc-lbl {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  line-height: 1.4;
+}
+
+.market-footer {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.market-footer h4 { font-weight: 800; color: var(--orange); margin-bottom: 0.3rem; }
+.market-footer p { font-size: 0.88rem; color: var(--muted); }
+
+/* ═══ COMPARATIVO ═══ */
+.comp-section {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(170,70,0,0.06) 0%, transparent 50%),
+    var(--black);
+}
+
+.comp-wrap {
+  border: 4px solid var(--orange);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 50px rgba(255,126,39,0.08);
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--charcoal);
+}
+
+.comp-table thead { background: var(--orange); color: var(--black); }
+
+.comp-table th {
+  padding: 1rem 0.8rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.comp-table th.hl { background: rgba(0,0,0,0.1); }
+
+.comp-table td {
+  padding: 0.85rem 0.8rem;
+  text-align: center;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.75);
+}
+
+.comp-table td:first-child { text-align: left; font-weight: 700; color: #fff; }
+.comp-table td.hl { color: var(--orange); font-weight: 800; background: rgba(255,126,39,0.04); }
+.comp-table tbody tr:hover { background: rgba(255,126,39,0.03); }
+
+/* ═══ PROCESS ═══ */
+.process-section { background: var(--black); }
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.proc-card {
+  background: var(--orange);
+  color: var(--black);
+  border-radius: 8px;
+  padding: 2.2rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.proc-card:hover { transform: translateY(-5px); }
+
+.proc-card .proc-deco {
+  position: absolute;
+  top: 0.6rem; right: 0.8rem;
+  font-size: 1.6rem;
+  opacity: 0.2;
+}
+
+.proc-num { font-size: 2.8rem; font-weight: 900; line-height: 1; margin-bottom: 0.6rem; }
+.proc-name { font-weight: 800; font-size: 1rem; margin-bottom: 0.7rem; }
+.proc-desc { font-size: 0.84rem; line-height: 1.5; opacity: 0.8; }
+.proc-perc { margin-top: 1.2rem; font-weight: 900; font-size: 0.92rem; }
+
+/* ═══ TESTIMONIAL ═══ */
+.test-section {
+  background:
+    radial-gradient(ellipse 40% 50% at 80% 50%, rgba(170,70,0,0.08) 0%, transparent 50%),
+    var(--black);
+}
+
+.test-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 8px;
+  padding: 3rem;
+  max-width: 700px;
+}
+
+.test-quote {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.test-quote::before {
+  content: '\201C';
+  font-size: 3rem;
+  color: var(--orange);
+  line-height: 0;
+  vertical-align: -0.6rem;
+  margin-right: 4px;
+  font-style: normal;
+}
+
+.test-author { font-size: 0.9rem; font-weight: 700; }
+.test-role { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+/* ═══ CTA SECTION ═══ */
+.cta-section {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 110%, rgba(170,70,0,0.65) 0%, transparent 55%),
+    var(--black);
+  text-align: center;
+  padding: clamp(100px, 15vh, 180px) 0;
+}
+
+.cta-headline {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.cta-headline span {
+  background: var(--orange);
+  padding: 2px 16px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.cta-p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-actions a {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px;
+  background: rgba(255,126,39,0.08);
+  border: 1px solid rgba(255,126,39,0.35);
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  min-width: 280px;
+  justify-content: center;
+  transition: all 0.25s;
+}
+
+.cta-actions a:hover {
+  background: var(--orange);
+  color: var(--black);
+  font-weight: 700;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,126,39,0.3);
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255,126,39,0.08);
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+/* ═══ PRICING TOGGLE ═══ */
+.pricing-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.2);
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 2.5rem;
+  width: fit-content;
+}
+
+.toggle-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: transparent;
+  color: var(--muted);
+}
+
+.toggle-btn.active {
+  background: var(--orange);
+  color: var(--black);
+}
+
+.toggle-btn:hover:not(.active) {
+  color: #fff;
+}
+
+/* DRE Button */
+.btn-dre {
+  display: block;
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.06);
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0.7;
+}
+
+.btn-dre:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.12);
+}
+
+.price-card.featured .btn-dre {
+  border-color: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.1);
+}
+
+/* ═══ DRE MODAL ═══ */
+.dre-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.dre-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.dre-modal {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,126,39,0.3);
+  border-radius: 10px;
+  max-width: 520px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s;
+}
+
+.dre-overlay.open .dre-modal {
+  transform: translateY(0) scale(1);
+}
+
+.dre-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid rgba(255,126,39,0.15);
+}
+
+.dre-header h3 {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.dre-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.dre-close:hover { color: #fff; }
+
+.dre-body { padding: 1.2rem 1.8rem 1.8rem; }
+
+.dre-group-title {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+  margin: 1.4rem 0 0.6rem;
+}
+
+.dre-group-title:first-child { margin-top: 0; }
+
+.dre-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.dre-row:last-child { border: none; }
+
+.dre-row .dre-label { color: rgba(255,255,255,0.7); }
+.dre-row .dre-value { font-weight: 700; }
+.dre-row .dre-value.negative { color: #ff6b6b; }
+
+.dre-subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+}
+
+.dre-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 0.5rem;
+  margin-top: 0.8rem;
+  border-top: 2px solid var(--orange);
+  font-weight: 900;
+}
+
+.dre-total .dre-label { font-size: 0.95rem; }
+.dre-total .dre-value { color: var(--orange); font-size: 1.15rem; }
+
+.dre-row-neutral {
+  opacity: 0.6;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.dre-value.dre-neutral {
+  color: var(--muted);
+}
+
+.dre-subtotal-labeled {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.55rem 0.6rem;
+  margin: 0.3rem 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: rgba(255,126,39,0.07);
+  border-radius: 4px;
+  color: rgba(255,255,255,0.85);
+}
+
+.dre-subtotal-labeled span:last-child {
+  color: var(--orange);
+}
+
+.dre-invest {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(255,126,39,0.06);
+  border: 1px solid rgba(255,126,39,0.15);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.dre-invest .dre-label { color: var(--muted); }
+.dre-invest .dre-value { font-weight: 800; color: #fff; }
+
+/* ═══ SOLAR DECO ═══ */
+.solar-deco-row {
+  position: absolute;
+  bottom: 20px; left: 0; right: 0;
+  display: flex; justify-content: center;
+  gap: 1rem;
+  opacity: 0.06;
+  font-size: 1.8rem;
+  z-index: 0;
+}
+
+/* ═══ SECTION PHOTOS ═══ */
+.section-photo {
+  margin: 3rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 400px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.section-photo img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.8) saturate(0.85);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.section-photo:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.9) saturate(1);
+}
+.section-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20,18,18,0.65) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
+}
+.section-photo-caption {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.5rem;
+  z-index: 2;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.05em;
+}
+.section-photo-half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 3rem auto 0;
+}
+.section-photo-half .section-photo { margin: 0; }
+
+.process-section {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(170,70,0,0.07) 0%, transparent 60%),
+    var(--black);
+}
+
+/* ═══ TARIFF SECTION ═══ */
+.tariff-section { background: var(--black); }
+.tariff-waterfall { max-width: 760px; margin: 3rem auto 0; }
+.tariff-row { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.tariff-row:last-child { border-bottom: none; }
+.tariff-label { width: 290px; flex-shrink: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+.tariff-label strong { color: var(--text); }
+.tariff-bar-wrap { flex: 1; height: 10px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden; }
+.tariff-bar { height: 100%; border-radius: 6px; width: 0; transition: width 1.4s cubic-bezier(0.16,1,0.3,1); }
+.tariff-bar.orange { background: var(--orange); }
+.tariff-bar.deduct { background: rgba(255,90,90,0.65); }
+.tariff-bar.result { background: rgba(80,220,120,0.8); }
+.tariff-val { width: 130px; text-align: right; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+.tariff-val.orange { color: var(--orange); }
+.tariff-val.deduct { color: rgba(255,120,120,0.9); }
+.tariff-val.result { color: rgba(80,220,120,0.95); }
+.tariff-waterfall.visible .tariff-bar { width: var(--pct); }
+.tariff-final { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 760px; margin: 2rem auto 0; padding: 1.4rem 2rem; background: rgba(80,220,120,0.07); border: 1px solid rgba(80,220,120,0.28); border-radius: 12px; }
+.tariff-final-label { font-size: 1rem; color: var(--muted); }
+.tariff-final-value { font-size: 2.2rem; font-weight: 900; color: rgba(80,220,120,0.95); letter-spacing: -1px; }
+.tariff-note-box { max-width: 760px; margin: 1.2rem auto 0; padding: 1rem 1.5rem; background: rgba(255,126,39,0.07); border-left: 3px solid var(--orange); border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.tariff-note-box strong { color: var(--text); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-kpis { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .hero-kpi { flex: 1; min-width: 200px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .mult-grid { grid-template-columns: 1fr; }
+  .mult-arrow { transform: rotate(90deg) !important; margin: 1rem auto; }
+  .mult-grid.visible .mult-arrow { transform: rotate(90deg) scale(1) !important; }
+
+  .market-stats { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .flow-path { flex-direction: column; gap: 1rem; }
+  .flow-path::before { display: none; }
+  .flow-line-animated { display: none; }
+  .flow-particle { display: none; }
+  .nav-links { display: none; }
+  .nav-mobile { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .diff-grid { grid-template-columns: 1fr; }
+  section { padding: clamp(60px, 10vh, 100px) 0; }
+  .section-photo-half { grid-template-columns: 1fr; }
+  .section-photo img { height: 240px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="imagens/logo-laranja.png" alt="Vertus Solar">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#pilares">Modelo</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+    <li><a href="#mercado">Mercado</a></li>
+    <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
+  </ul>
+  <button class="nav-mobile" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero grain">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge" data-reveal>Ceara, 2026 — Oportunidade aberta</div>
+        <h1 data-reveal>Usina Solar +<br><em>Eletropostos</em></h1>
+        <p class="hero-sub" data-reveal>Seu investimento gera energia. Sua energia abastece veiculos eletricos. Seu retorno acelera — com receita previsivel e controle total da cadeia.</p>
+        <div class="hero-actions" data-reveal>
+          <a href="#investimento" class="btn btn-primary">Ver cenarios</a>
+          <a href="#como-funciona" class="btn btn-secondary">Como funciona</a>
+        </div>
+      </div>
+      <div class="hero-kpis stagger">
+        <div class="hero-kpi" data-reveal="right">
+          <div class="hero-kpi-icon">&#9889;</div>
+          <div>
+            <div class="hero-kpi-val">Novo modelo</div>
+            <div class="hero-kpi-lbl">Usina + Eletroposto integrados</div>
+          </div>
+        </div>
+        <div class="hero-kpi" data-reveal="right">
+          <div class="hero-kpi-icon">&#128200;</div>
+          <div>
+            <div class="hero-kpi-val">Retorno acelerado</div>
+            <div class="hero-kpi-lbl">Saiba quanto rende — veja os cenarios</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="pillars-section grain" id="pilares">
+  <div class="container">
+    <div class="section-badge" data-reveal>O Modelo Vertus</div>
+    <h2 class="section-title" data-reveal>Dois pilares. Uma operacao integrada.</h2>
+    <p class="section-desc" data-reveal>A Vertus combina geracao solar propria com estacoes de recarga de veiculos eletricos — criando um ecossistema onde o investidor controla toda a cadeia de valor da energia.</p>
+    <div class="pillars-grid stagger">
+      <div class="pillar-card" data-num="1" data-reveal>
+        <div class="pillar-icon">&#9728;</div>
+        <h3>Usinas Solares</h3>
+        <p>Modelo de administracao propria com pagamento somente apos funcionamento comprovado e energia locada. Gestao completa com monitoramento ativo 24h, alertas automaticos e garantia direta com a Vertus — sem intermediarios.</p>
+        <span class="pillar-tag">Confianca total para o investidor</span>
+      </div>
+      <div class="pillar-card" data-num="2" data-reveal>
+        <div class="pillar-icon">&#9889;</div>
+        <h3>Eletropostos</h3>
+        <p>A energia da usina abastece diretamente os eletropostos do proprio investidor. Receita previsivel porque quem consome a energia e o proprio ativo — voce nao depende de terceiros para gerar faturamento.</p>
+        <span class="pillar-tag">Receita previsivel e acelerada</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diff-section grain">
+  <div class="container">
+    <div class="section-badge" data-reveal>Por que a Vertus</div>
+    <h2 class="section-title" data-reveal>Diferenciais reais</h2>
+    <p class="section-desc" data-reveal>Nao vendemos paineis. Entregamos uma operacao completa de geracao de receita.</p>
+    <div class="diff-grid stagger">
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#128176;</div>
+        <h4>Pagamento apos funcionamento</h4>
+        <p>Voce so paga a totalidade quando a usina esta ligada, murada e gerando. Rentabilidade em no maximo 60 dias.</p>
+      </div>
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#128737;</div>
+        <h4>Gestao completa integrada</h4>
+        <p>Monitoramento remoto ativo, alertas automaticos, revisoes preventivas e relatorios mensais. Usina + EPs em operacao unica.</p>
+      </div>
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#128260;</div>
+        <h4>Troca, nunca reparo</h4>
+        <p>Problema? Substituimos por equipamento novo. Inversor de backup. Sem espera.</p>
+      </div>
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#128274;</div>
+        <h4>Seguro completo</h4>
+        <p>Cobertura contra roubo, furto, eventos climaticos. Primeiro ano incluso.</p>
+      </div>
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#9878;</div>
+        <h4>Escalabilidade modular</h4>
+        <p>De 30 kWp a 90 kWp + 2 EPs. Cresça conforme capital e demanda.</p>
+      </div>
+      <div class="diff-card" data-reveal>
+        <div class="diff-card-icon">&#9889;</div>
+        <h4>Controle total da cadeia</h4>
+        <p>Custo fixo R$ 0,40/kWh. Zero oscilacao tarifaria. Voce gera, distribui e vende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="flow-section grain" id="como-funciona">
+  <div class="container">
+    <div class="section-badge" data-reveal>Como funciona</div>
+    <h2 class="section-title" data-reveal>O caminho da energia ate sua conta</h2>
+    <p class="section-desc" data-reveal>Dois caminhos de receita. Escolha o que faz sentido para voce — ou combine os dois.</p>
+
+    <div class="section-photo" data-reveal>
+      <img src="imagens/66f5a58b6fab4b05587fe0d4_img-thumbnail-aprenda-a-realizar-a-instalacao-de-usina-solar-no-solo.png" alt="Usina solar fotovoltaica" loading="lazy">
+      <span class="section-photo-caption">Usina solar fotovoltaica — geração distribuída</span>
+    </div>
+
+    <div class="flow-toggle" data-reveal style="margin-top:2.5rem">
+      <button class="flow-toggle-btn active" data-flow="usina">&#9728; Somente Usina</button>
+      <button class="flow-toggle-btn" data-flow="ep">&#9889; Usina + Eletroposto</button>
+    </div>
+
+    <!-- FLUXO 1: SOMENTE USINA -->
+    <div class="flow-visual" id="flow-usina" data-reveal="scale">
+      <div class="flow-path">
+        <div class="flow-line-animated"></div>
+        <div class="flow-particle"></div>
+        <div class="flow-node">
+          <div class="flow-node-circle">&#9728;</div>
+          <div class="flow-node-title">Sua Usina</div>
+          <div class="flow-node-desc">Gera kWh</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle">&#9879;</div>
+          <div class="flow-node-title">Rede</div>
+          <div class="flow-node-desc">Injeta creditos</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle">&#127968;</div>
+          <div class="flow-node-title">Consumidor</div>
+          <div class="flow-node-desc">Usa com desconto</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle" style="border-color:var(--orange);">&#9878;</div>
+          <div class="flow-node-title" style="color:var(--orange);">Vertus</div>
+          <div class="flow-node-desc">Gestao + cobranca</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle">&#128181;</div>
+          <div class="flow-node-title">Sua Receita</div>
+          <div class="flow-node-desc">R$ 0,45/kWh</div>
+        </div>
+      </div>
+
+      <div class="flow-callout">
+        <h3>Retorno consistente com gestao completa</h3>
+        <p>Energia locada na GD a R$ 0,45/kWh. Gestao Vertus (10%) inclui monitoramento remoto ativo, manutencao preventiva e relatorios mensais. Pagamento somente apos funcionamento comprovado.</p>
+      </div>
+    </div>
+
+    <!-- FLUXO 2: USINA + ELETROPOSTO -->
+    <div class="flow-visual" id="flow-ep" style="display:none">
+      <div class="flow-path flow-path-ep">
+        <div class="flow-line-animated"></div>
+        <div class="flow-particle"></div>
+
+        <div class="flow-node">
+          <div class="flow-node-circle">&#9728;</div>
+          <div class="flow-node-title">Sua Usina</div>
+          <div class="flow-node-desc">Gera kWh</div>
+        </div>
+        <div class="flow-node flow-node-split">
+          <div class="flow-node-circle">&#9878;</div>
+          <div class="flow-node-title">Distribui</div>
+          <div class="flow-node-desc">Divide a energia</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle">&#127968;</div>
+          <div class="flow-node-title">GD</div>
+          <div class="flow-node-desc">R$ 0,45/kWh</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle" style="border-color:var(--orange); background:rgba(255,126,39,0.15);">&#9889;</div>
+          <div class="flow-node-title" style="color:var(--orange);">Eletroposto</div>
+          <div class="flow-node-desc" style="color:var(--orange); font-weight:700;">R$ 1,60/kWh</div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-circle" style="border-color:var(--orange);">&#128181;</div>
+          <div class="flow-node-title" style="color:var(--orange);">Sua Receita</div>
+          <div class="flow-node-desc" style="color:var(--orange); font-weight:700;">Potencializada</div>
+        </div>
+      </div>
+
+      <div class="flow-callout" style="border-color:var(--orange); box-shadow:0 0 50px rgba(255,126,39,0.1);">
+        <h3>Receita potencializada com eletroposto</h3>
+        <p>Parte da energia vai para GD (R$ 0,45/kWh). O excedente abastece seu eletroposto a R$ 1,60/kWh — <strong style="color:var(--orange);">3,5x mais valor</strong> pela mesma energia. Voce controla toda a cadeia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MULTIPLICADOR -->
+<section class="mult-section grain">
+  <div class="container">
+    <div class="section-badge" data-reveal>O Multiplicador</div>
+    <h2 class="section-title" data-reveal>Boa receita na GD. Receita potencializada no eletroposto.</h2>
+    <p class="section-desc" data-reveal>A locacao solar (GD) ja gera retorno consistente. Com o eletroposto, a mesma energia passa de R$ 0,45 para R$ 1,60/kWh.</p>
+
+    <div class="mult-grid" data-reveal="scale">
+      <div class="mult-card before">
+        <div class="mult-label">Venda na GD</div>
+        <div class="mult-price">R$ 0,45</div>
+        <div class="mult-desc">por kWh ao consumidor</div>
+      </div>
+      <div class="mult-arrow">&#10132;</div>
+      <div class="mult-card after">
+        <div class="mult-label">Recarga no Eletroposto</div>
+        <div class="mult-price">R$ 1,60</div>
+        <div class="mult-desc">por kWh ao motorista</div>
+      </div>
+    </div>
+
+    <div class="mult-insight" data-reveal>
+      <p>A usina solar ja entrega <strong>retorno acima de qualquer renda fixa</strong>. Com o eletroposto, a mesma energia gera <strong>3,5x mais valor</strong> — receita previsivel, com custo de energia fixo e previsivel de R$ 0,30/kWh.</p>
+    </div>
+
+    <div class="section-photo-half" data-reveal>
+      <div class="section-photo" style="margin:0">
+        <img src="imagens/download (1).jpeg" alt="Solar carport com recarga EV" loading="lazy">
+        <span class="section-photo-caption">Recarga de veículo elétrico</span>
+      </div>
+      <div class="section-photo" style="margin:0">
+        <img src="imagens/download (2).jpeg" alt="Eletroposto solar integrado" loading="lazy">
+        <span class="section-photo-caption">Eletroposto solar integrado — 30 kW DC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFF DRE -->
+<section class="tariff-section grain" id="formacao-tarifa">
+  <div class="container">
+    <div class="section-badge" data-reveal>Transparencia de Custo</div>
+    <h2 class="section-title" data-reveal>Como chegamos ao custo da energia</h2>
+    <p class="section-desc" data-reveal>Da tarifa cheia da distribuidora ao valor real disponivel para o investidor — cada deducao explicada.</p>
+
+    <div class="tariff-waterfall" data-reveal>
+      <div class="tariff-row">
+        <div class="tariff-label"><strong>Tarifa residencial ANEEL</strong><br><span style="font-size:0.75rem">Base de calculo (Ceara)</span></div>
+        <div class="tariff-bar-wrap"><div class="tariff-bar orange" style="--pct:100%"></div></div>
+        <div class="tariff-val orange">R$ 0,930 /kWh</div>
+      </div>
+      <div class="tariff-row">
+        <div class="tariff-label">− Tributos (ICMS / PIS / COFINS)</div>
+        <div class="tariff-bar-wrap"><div class="tariff-bar deduct" style="--pct:12.9%"></div></div>
+        <div class="tariff-val deduct">− R$ 0,120</div>
+      </div>
+      <div class="tariff-row">
+        <div class="tariff-label">− TUSD Fio B (uso da rede distribuicao)</div>
+        <div class="tariff-bar-wrap"><div class="tariff-bar deduct" style="--pct:19.9%"></div></div>
+        <div class="tariff-val deduct">− R$ 0,185</div>
+      </div>
+      <div class="tariff-row">
+        <div class="tariff-label"><strong>= Tarifa compensavel GD</strong></div>
+        <div class="tariff-bar-wrap"><div class="tariff-bar result" style="--pct:67.2%"></div></div>
+        <div class="tariff-val result">R$ 0,625 /kWh</div>
+      </div>
+      <div class="tariff-row">
+        <div class="tariff-label">− Desconto ao consumidor + repasses Vertus (30%)</div>
+        <div class="tariff-bar-wrap"><div class="tariff-bar deduct" style="--pct:20.1%"></div></div>
+        <div class="tariff-val deduct">− R$ 0,187</div>
+      </div>
+    </div>
+
+    <div class="tariff-final" data-reveal>
+      <div>
+        <div class="tariff-final-label">Tarifa de Locacao Bruta — Receita do Investidor</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:4px;">Base de calculo aplicada em todos os cenarios de investimento</div>
+      </div>
+      <div class="tariff-final-value">≈ R$ 0,44 /kWh</div>
+    </div>
+
+    <div class="tariff-note-box" data-reveal>
+      <strong>Eletroposto com geracao propria:</strong> quando o investidor opera o eletroposto usando energia da propria usina solar, o custo da energia fica em <strong>R$ 0,30/kWh</strong> — muito abaixo da tarifa publica de R$ 0,93/kWh. A receita de recarga de <strong>R$ 1,60/kWh</strong> cobrada do motorista gera uma margem bruta de R$ 1,30 por kWh, tornando o retorno significativamente superior ao modelo de usina pura.
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section grain" id="investimento">
+  <div class="container">
+    <div class="section-badge" data-reveal>Cenarios de Investimento</div>
+    <h2 class="section-title" data-reveal>Um investimento que vai te dar:</h2>
+    <p class="section-desc" data-reveal>Usina solar ja e um excelente investimento. Com eletroposto, o retorno acelera ainda mais.</p>
+
+    <div class="pricing-toggle" data-reveal>
+      <button class="toggle-btn active" data-mode="com">&#9889; Com Eletroposto — Potencializado</button>
+      <button class="toggle-btn" data-mode="sem">&#9728; Somente Usina Solar</button>
+    </div>
+
+    <!-- COM ELETROPOSTO -->
+    <div class="pricing-grid stagger" id="grid-com">
+      <div class="price-card" data-reveal>
+        <div class="pc-kwp">30KWP</div>
+        <div class="pc-sub">Somente usina solar</div>
+        <div class="pc-amount">R$ 1.920</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 85.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">2,26% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~44 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 115.200</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="30-sem">Mostrar DRE &#8594;</button>
+      </div>
+      <div class="price-card featured" data-reveal>
+        <div class="pc-ribbon">Recomendado</div>
+        <div class="pc-kwp">60KWP + 1 EP</div>
+        <div class="pc-sub">Usina + 1 Eletroposto 30kW</div>
+        <div class="pc-amount">R$ 8.218</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 210.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">3,91% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~26 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 493.080</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="60-com">Mostrar DRE &#8594;</button>
+      </div>
+      <div class="price-card" data-reveal>
+        <div class="pc-kwp">90KWP + 2 EPs</div>
+        <div class="pc-sub">Usina + 2 Eletropostos 30kW</div>
+        <div class="pc-amount">R$ 15.860</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 335.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">4,73% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~21 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 951.600</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="90-com">Mostrar DRE &#8594;</button>
+      </div>
+    </div>
+
+    <!-- SEM ELETROPOSTO -->
+    <div class="pricing-grid stagger" id="grid-sem" style="display:none">
+      <div class="price-card" data-reveal>
+        <div class="pc-kwp">30KWP</div>
+        <div class="pc-sub">Usina solar</div>
+        <div class="pc-amount">R$ 1.920</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 85.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">2,26% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~44 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 115.200</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="30-sem">Mostrar DRE &#8594;</button>
+      </div>
+      <div class="price-card" data-reveal>
+        <div class="pc-kwp">60KWP</div>
+        <div class="pc-sub">Usina solar</div>
+        <div class="pc-amount">R$ 3.761</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 170.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">2,21% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~45 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 225.660</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="60-sem">Mostrar DRE &#8594;</button>
+      </div>
+      <div class="price-card" data-reveal>
+        <div class="pc-kwp">90KWP</div>
+        <div class="pc-sub">Usina solar</div>
+        <div class="pc-amount">R$ 5.654</div>
+        <div class="pc-lbl">Ganho mensal</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pcl">Investimento</span><span class="pcv">R$ 255.000</span></li>
+          <li><span class="pcl">Retorno</span><span class="pcv">2,22% a.m.</span></li>
+          <li><span class="pcl">Payback</span><span class="pcv">~45 meses</span></li>
+          <li><span class="pcl">Em 5 anos</span><span class="pcv">R$ 339.240</span></li>
+        </ul>
+        <button class="btn-dre" data-dre="90-sem">Mostrar DRE &#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="comp-section grain">
+  <div class="container">
+    <div class="section-badge" data-reveal>Comparativo</div>
+    <h2 class="section-title" data-reveal>Usina solar e otima. Com eletroposto, e extraordinaria.</h2>
+    <p class="section-desc" data-reveal>Compare os cenarios: a usina ja entrega retorno acima do mercado. O eletroposto potencializa cada kWh gerado.</p>
+
+    <div class="comp-wrap" data-reveal="scale">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Metrica</th>
+            <th>60 kWp Usina</th>
+            <th class="hl">60 kWp + 1 EP</th>
+            <th>90 kWp Usina</th>
+            <th class="hl">90 kWp + 2 EPs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Investimento</td><td>R$ 170.000</td><td class="hl">R$ 210.000</td><td>R$ 255.000</td><td class="hl">R$ 335.000</td></tr>
+          <tr><td>Receita mensal</td><td>R$ 3.761</td><td class="hl">R$ 8.218</td><td>R$ 5.654</td><td class="hl">R$ 15.860</td></tr>
+          <tr><td>Retorno mensal</td><td>2,21%</td><td class="hl">3,91%</td><td>2,22%</td><td class="hl">4,73%</td></tr>
+          <tr><td>Payback</td><td>~45 meses</td><td class="hl">~26 meses</td><td>~45 meses</td><td class="hl">~21 meses</td></tr>
+          <tr><td>Receita 5 anos</td><td>R$ 225.660</td><td class="hl">R$ 493.080</td><td>R$ 339.240</td><td class="hl">R$ 951.600</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section class="market-section grain" id="mercado">
+  <div class="container">
+    <div class="section-badge" data-reveal>Mercado</div>
+    <h2 class="section-title" data-reveal>Por que agora? O Ceara esta pronto.</h2>
+    <p class="section-desc" data-reveal>A demanda ja existe. A infraestrutura nao acompanhou. Essa e a janela de entrada.</p>
+
+    <div class="market-stats stagger">
+      <div class="market-card" data-reveal>
+        <div class="mc-val" data-count="9089">0</div>
+        <div class="mc-lbl">Veiculos eletricos e hibridos no Ceara</div>
+      </div>
+      <div class="market-card" data-reveal>
+        <div class="mc-val" data-count="105">0</div>
+        <div class="mc-lbl">Pontos de recarga rapida DC</div>
+      </div>
+      <div class="market-card" data-reveal>
+        <div class="mc-val">87:1</div>
+        <div class="mc-lbl">Veiculos por ponto de recarga</div>
+      </div>
+    </div>
+
+    <div class="market-footer" data-reveal>
+      <h4>+100% de crescimento anual no setor de EVs no Brasil</h4>
+      <p>+2.800 horas de sol/ano &middot; Fortaleza concentra 41% dos EVs do estado &middot; Mercado subabastecido</p>
+    </div>
+  </div>
+  <div class="solar-deco-row">
+    <span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span><span>&#9878;</span>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="process-section grain">
+  <div class="container">
+    <div class="section-badge" data-reveal>Desembolso</div>
+    <h2 class="section-title" data-reveal>Etapas de pagamento</h2>
+    <p class="section-desc" data-reveal>Pagamento fracionado. Voce so paga a totalidade quando a usina esta gerando.</p>
+
+    <div class="process-grid stagger">
+      <div class="proc-card" data-reveal>
+        <span class="proc-deco">&#9878;</span>
+        <div class="proc-num">01</div>
+        <div class="proc-name">Sinal</div>
+        <div class="proc-desc">Assinatura do contrato e agendamento da instalacao.</div>
+        <div class="proc-perc">10% do valor</div>
+      </div>
+      <div class="proc-card" data-reveal>
+        <span class="proc-deco">&#9878;</span>
+        <div class="proc-num">02</div>
+        <div class="proc-name">Equipamentos</div>
+        <div class="proc-desc">Compra, preparacao do solo, instalacao eletrica e mecanica completa.</div>
+        <div class="proc-perc">50% do valor</div>
+      </div>
+      <div class="proc-card" data-reveal>
+        <span class="proc-deco">&#9878;</span>
+        <div class="proc-num">03</div>
+        <div class="proc-name">Operacao</div>
+        <div class="proc-desc">Vistoria da distribuidora, ligacao do sistema. Usina gerando.</div>
+        <div class="proc-perc">40% do valor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section class="test-section grain">
+  <div class="container">
+    <div class="section-badge" data-reveal>Depoimento</div>
+    <div class="test-card" data-reveal>
+      <p class="test-quote">A gente ja tem um projeto para ampliar, nao tenho nada a reclamar, porque o tratamento foi transparente do jeito que eu gosto.</p>
+      <div class="test-author">Lucas Saboia</div>
+      <div class="test-role">Diretor do Colegio Kennedy</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section grain" id="contato">
+  <div class="container">
+    <div data-reveal>
+      <img src="imagens/logo-laranja.png" alt="Vertus Solar" style="height:48px; margin-bottom:2rem;">
+    </div>
+    <h2 class="cta-headline" data-reveal><span>Pronto para o melhor</span><br><span>investimento da sua vida?</span></h2>
+    <p class="cta-p" data-reveal>Proximo passo: validar localizacao dos eletropostos para garantir fluxo de demanda.</p>
+    <div class="cta-actions" data-reveal>
+      <a href="tel:+5585994314967">&#128222;&ensp;(85) 99431-4967</a>
+      <a href="mailto:contato@vertussolar.com.br">&#9993;&ensp;contato@vertussolar.com.br</a>
+      <a href="https://vertussolar.com.br">&#127760;&ensp;vertussolar.com.br</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="grain">
+  <div class="container">
+    <p>Vertus Solar Energia Ltda. &middot; Ceara, Brasil &middot; 2025</p>
+  </div>
+</footer>
+
+<!-- DRE MODAL -->
+<div class="dre-overlay" id="dreOverlay">
+  <div class="dre-modal">
+    <div class="dre-header">
+      <h3 id="dreTitle">DRE</h3>
+      <button class="dre-close" id="dreClose">&times;</button>
+    </div>
+    <div class="dre-body" id="dreBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ═══ Scroll Reveal ═══
+  const reveals = document.querySelectorAll('[data-reveal]');
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        // Don't unobserve — we want it to stay visible
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => revealObs.observe(el));
+
+  // ═══ Flow visual animation trigger ═══
+  const flowVisuals = document.querySelectorAll('.flow-visual');
+  if(flowVisuals.length){
+    const flowObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+    flowVisuals.forEach(fv => flowObs.observe(fv));
+  }
+
+  // ═══ Multiplier arrow ═══
+  const multGrid = document.querySelector('.mult-grid');
+  if(multGrid){
+    const multObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.4 });
+    multObs.observe(multGrid);
+  }
+
+  // ═══ Tariff waterfall animation ═══
+  const tariffWaterfall = document.querySelector('.tariff-waterfall');
+  if(tariffWaterfall){
+    const twObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          twObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    twObs.observe(tariffWaterfall);
+  }
+
+  // ═══ Counter animation ═══
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !entry.target.dataset.counted){
+        entry.target.dataset.counted = '1';
+        const target = parseInt(entry.target.dataset.count);
+        const duration = 1800;
+        const start = performance.now();
+        function tick(now){
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          entry.target.textContent = Math.floor(eased * target).toLocaleString('pt-BR');
+          if(progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => counterObs.observe(el));
+
+  // ═══ Navbar scroll effect ═══
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ═══ Smooth scroll for nav links ═══
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ═══ Flow Toggle (Usina / Usina+EP) ═══
+  const flowToggleBtns = document.querySelectorAll('.flow-toggle-btn');
+  const flowUsina = document.getElementById('flow-usina');
+  const flowEp = document.getElementById('flow-ep');
+
+  flowToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      flowToggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.flow;
+      if(mode === 'usina'){
+        flowUsina.style.display = '';
+        flowEp.style.display = 'none';
+        reanimateFlow(flowUsina);
+      } else {
+        flowUsina.style.display = 'none';
+        flowEp.style.display = '';
+        reanimateFlow(flowEp);
+      }
+    });
+  });
+
+  function reanimateFlow(el){
+    // Reset animation by removing/re-adding visible class
+    el.classList.remove('visible');
+    el.querySelectorAll('.flow-node').forEach(n => { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; });
+    const line = el.querySelector('.flow-line-animated');
+    if(line) line.style.width = '0';
+    const particle = el.querySelector('.flow-particle');
+    if(particle) { particle.style.opacity = '0'; particle.style.animation = 'none'; }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.classList.add('visible');
+        el.querySelectorAll('.flow-node').forEach(n => { n.style.opacity = ''; n.style.transform = ''; });
+        if(line) line.style.width = '';
+        if(particle) { particle.style.opacity = ''; particle.style.animation = ''; }
+      });
+    });
+  }
+
+  // ═══ Pricing Toggle (Com/Sem EP) ═══
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+  const gridCom = document.getElementById('grid-com');
+  const gridSem = document.getElementById('grid-sem');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.mode;
+      if(mode === 'com'){
+        gridCom.style.display = '';
+        gridSem.style.display = 'none';
+      } else {
+        gridCom.style.display = 'none';
+        gridSem.style.display = '';
+        // trigger reveal on sem cards
+        gridSem.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+      }
+    });
+  });
+
+  // ═══ DRE Data ═══
+  const dreData = {
+    '30-sem': {
+      title: 'DRE — 30 kWp Usina Solar',
+      invest: 'R$ 85.000',
+      groups: [
+        {
+          title: 'Receita Bruta',
+          rows: [
+            { label: 'Geração estimada', value: '4.170 kWh/mês', neutral: true },
+            { label: 'Tarifa compensável GD (base ANEEL CE)', value: 'R$ 0,625/kWh', neutral: true },
+            { label: 'Receita Bruta de Locação', value: 'R$ 2.606' }
+          ],
+          subtotalLabel: 'Receita Bruta',
+          subtotal: 'R$ 2.606'
+        },
+        {
+          title: 'Descontos e Repasses',
+          rows: [
+            { label: 'Desconto ao consumidor GD (20%)', value: '− R$ 521', neg: true }
+          ],
+          subtotalLabel: 'Receita Líquida de Locação',
+          subtotal: 'R$ 2.085'
+        },
+        {
+          title: 'Custos e Encargos',
+          rows: [
+            { label: 'Impostos e encargos sobre receita (5,5%)', value: '− R$ 115', neg: true },
+            { label: 'Custo de disponibilidade — conexão à rede distribuidora', value: '− R$ 50', neg: true }
+          ],
+          subtotalLabel: null,
+          subtotal: null
+        }
+      ],
+      total: 'R$ 1.920'
+    },
+    '60-sem': {
+      title: 'DRE — 60 kWp Usina Solar',
+      invest: 'R$ 170.000',
+      groups: [
+        {
+          title: 'Receita Bruta',
+          rows: [
+            { label: 'Geração estimada', value: '8.130 kWh/mês', neutral: true },
+            { label: 'Tarifa compensável GD (base ANEEL CE)', value: 'R$ 0,625/kWh', neutral: true },
+            { label: 'Receita Bruta de Locação', value: 'R$ 5.081' }
+          ],
+          subtotalLabel: 'Receita Bruta',
+          subtotal: 'R$ 5.081'
+        },
+        {
+          title: 'Descontos e Repasses',
+          rows: [
+            { label: 'Desconto ao consumidor GD (20%)', value: '− R$ 1.016', neg: true }
+          ],
+          subtotalLabel: 'Receita Líquida de Locação',
+          subtotal: 'R$ 4.065'
+        },
+        {
+          title: 'Custos e Encargos',
+          rows: [
+            { label: 'Impostos e encargos sobre receita (5,5%)', value: '− R$ 224', neg: true },
+            { label: 'Custo de disponibilidade — conexão à rede distribuidora', value: '− R$ 80', neg: true }
+          ],
+          subtotalLabel: null,
+          subtotal: null
+        }
+      ],
+      total: 'R$ 3.761'
+    },
+    '90-sem': {
+      title: 'DRE — 90 kWp Usina Solar',
+      invest: 'R$ 255.000',
+      groups: [
+        {
+          title: 'Receita Bruta',
+          rows: [
+            { label: 'Geração estimada', value: '12.220 kWh/mês', neutral: true },
+            { label: 'Tarifa compensável GD (base ANEEL CE)', value: 'R$ 0,625/kWh', neutral: true },
+            { label: 'Receita Bruta de Locação', value: 'R$ 7.638' }
+          ],
+          subtotalLabel: 'Receita Bruta',
+          subtotal: 'R$ 7.638'
+        },
+        {
+          title: 'Descontos e Repasses',
+          rows: [
+            { label: 'Desconto ao consumidor GD (20%)', value: '− R$ 1.528', neg: true }
+          ],
+          subtotalLabel: 'Receita Líquida de Locação',
+          subtotal: 'R$ 6.110'
+        },
+        {
+          title: 'Custos e Encargos',
+          rows: [
+            { label: 'Impostos e encargos sobre receita (5,5%)', value: '− R$ 336', neg: true },
+            { label: 'Custo de disponibilidade — conexão à rede distribuidora', value: '− R$ 120', neg: true }
+          ],
+          subtotalLabel: null,
+          subtotal: null
+        }
+      ],
+      total: 'R$ 5.654'
+    },
+    '60-com': {
+      title: 'DRE — 60 kWp + 1 Eletroposto',
+      invest: 'R$ 210.000',
+      groups: [
+        {
+          title: 'Receita Usina Solar — Excedente GD',
+          rows: [
+            { label: 'Geração total da usina', value: '8.130 kWh/mês', neutral: true },
+            { label: 'Energia direcionada ao eletroposto', value: '7.500 kWh', neutral: true },
+            { label: 'Excedente injetado na GD', value: '630 kWh', neutral: true },
+            { label: 'Receita bruta GD — excedente (R$ 0,625/kWh)', value: 'R$ 394' },
+            { label: 'Desconto ao consumidor GD (20%)', value: '− R$ 79', neg: true },
+            { label: 'Encargos e disponibilidade GD', value: '− R$ 27', neg: true }
+          ],
+          subtotalLabel: 'Receita Líquida GD',
+          subtotal: 'R$ 288'
+        },
+        {
+          title: 'Receita Eletroposto',
+          rows: [
+            { label: 'Throughput médio do EP', value: '7.500 kWh/mês', neutral: true },
+            { label: 'Receita de recarga EV (R$ 1,60/kWh)', value: 'R$ 12.000' },
+            { label: 'Custo de energia EP (R$ 0,30/kWh × 7.500 kWh)', value: '− R$ 2.250', neg: true },
+            { label: 'Plataforma — taxa sobre transações (10% da receita de recarga)', value: '− R$ 1.200', neg: true },
+            { label: 'Plataforma — taxa fixa mensal por estação', value: '− R$ 120', neg: true },
+            { label: 'Aluguel de vaga — ponto de recarga', value: '− R$ 500', neg: true }
+          ],
+          subtotalLabel: 'Margem Operacional EP',
+          subtotal: 'R$ 7.930'
+        }
+      ],
+      total: 'R$ 8.218'
+    },
+    '90-com': {
+      title: 'DRE — 90 kWp + 2 Eletropostos',
+      invest: 'R$ 335.000',
+      groups: [
+        {
+          title: 'Receita Usina Solar — GD',
+          rows: [
+            { label: 'Geração total da usina', value: '12.220 kWh/mês', neutral: true },
+            { label: 'Toda a geração consumida pelos eletropostos', value: '— sem excedente GD', neutral: true }
+          ],
+          subtotalLabel: 'Receita GD',
+          subtotal: 'R$ 0'
+        },
+        {
+          title: 'Receita 2 Eletropostos',
+          rows: [
+            { label: 'Throughput médio (2 EPs × 7.500 kWh)', value: '15.000 kWh/mês', neutral: true },
+            { label: 'Receita de recarga EV (R$ 1,60/kWh)', value: 'R$ 24.000' },
+            { label: 'Custo de energia EPs (R$ 0,30/kWh × 15.000 kWh)', value: '− R$ 4.500', neg: true },
+            { label: 'Plataforma — taxa sobre transações (10% da receita de recarga)', value: '− R$ 2.400', neg: true },
+            { label: 'Plataforma — taxa fixa mensal (2 estações × R$ 120)', value: '− R$ 240', neg: true },
+            { label: 'Aluguel de vagas — 2 pontos de recarga', value: '− R$ 1.000', neg: true }
+          ],
+          subtotalLabel: 'Margem Operacional 2 EPs',
+          subtotal: 'R$ 15.860'
+        }
+      ],
+      total: 'R$ 15.860'
+    }
+  };
+
+  // ═══ DRE Modal ═══
+  const overlay = document.getElementById('dreOverlay');
+  const dreTitle = document.getElementById('dreTitle');
+  const dreBody = document.getElementById('dreBody');
+  const dreClose = document.getElementById('dreClose');
+
+  function openDre(key){
+    const d = dreData[key];
+    if(!d) return;
+    dreTitle.textContent = d.title;
+
+    let html = '';
+    d.groups.forEach(g => {
+      html += '<div class="dre-group-title">' + g.title + '</div>';
+      g.rows.forEach(r => {
+        const cls = r.neg ? ' negative' : (r.neutral ? ' dre-neutral' : '');
+        html += '<div class="dre-row' + (r.neutral ? ' dre-row-neutral' : '') + '">';
+        html += '<span class="dre-label">' + r.label + '</span>';
+        html += '<span class="dre-value' + cls + '">' + r.value + '</span>';
+        html += '</div>';
+      });
+      if(g.subtotalLabel && g.subtotal){
+        html += '<div class="dre-subtotal dre-subtotal-labeled"><span>' + g.subtotalLabel + '</span><span>' + g.subtotal + '</span></div>';
+      }
+    });
+    html += '<div class="dre-total"><span class="dre-label">Resultado Líquido Mensal</span><span class="dre-value">' + d.total + '</span></div>';
+    html += '<div class="dre-invest"><span class="dre-label">Investimento total</span><span class="dre-value">' + d.invest + '</span></div>';
+
+    dreBody.innerHTML = html;
+    overlay.classList.add('open');
+  }
+
+  function closeDre(){
+    overlay.classList.remove('open');
+  }
+
+  dreClose.addEventListener('click', closeDre);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) closeDre(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDre(); });
+
+  document.querySelectorAll('.btn-dre').forEach(btn => {
+    btn.addEventListener('click', () => openDre(btn.dataset.dre));
+  });
+})();
+</script>
+
+</body>
+</html>
